@@ -4,6 +4,7 @@ import { TaskService } from '../../services/task.service';
 
 import { Task } from '../../models/task';
 import { TaskStatus } from '../../models/enums/task-status.enum';
+import { TaskTransition } from '../../models/enums/task-transition.enum';
 import { TaskMoveEvent } from '../../models/events/task-move-event';
 
 @Component({
@@ -38,8 +39,23 @@ export class TasksPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  private changePriority(task: Task, direction: TaskTransition) {
+    if (direction === TaskTransition.Up) {
+
+    }
+    else {
+
+    }
+  }
+
   handleTaskMove(moveEvent: TaskMoveEvent) {
-    console.log(moveEvent);
+    if (moveEvent.direction === TaskTransition.Back || moveEvent.direction === TaskTransition.Forward) {
+      moveEvent.task.changeStatus(moveEvent.direction);
+    }
+    else {
+      this.changePriority(moveEvent.task, moveEvent.direction);
+    }
+    this.updateTaskLists();
   }
 
   handleTaskDelete(task: Task) {

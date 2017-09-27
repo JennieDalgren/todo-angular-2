@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { TaskService } from './services/task.service';
 
+import { TaskPageComponent } from './pages/task-page/task-page.component';
 import { TasksPageComponent } from './pages/tasks-page/tasks-page.component';
 import { PlaygroundPageComponent } from './pages/playground-page/playground-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
@@ -18,6 +19,7 @@ import { TaskColumnComponent } from './components/task-column/task-column.compon
 const routes: Routes = [
   { path: '', redirectTo: 'tasks', pathMatch: 'full' },
   { path: 'tasks', component: TasksPageComponent },
+  { path: 'tasks/:id', component: TaskPageComponent },
   { path: 'profile', component: ProfilePageComponent },
   { path: 'playground', component: PlaygroundPageComponent },
 ];
@@ -29,7 +31,8 @@ const routes: Routes = [
     TaskCardComponent,
     TaskColumnComponent,
     TasksPageComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    TaskPageComponent
   ],
   imports: [
     BrowserModule,

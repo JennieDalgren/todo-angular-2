@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 import { Task } from '../../models/task';
 import { TaskStatus } from '../../models/enums/task-status.enum';
 import { TaskTransition } from '../../models/enums/task-transition.enum';
@@ -14,7 +16,7 @@ export class TaskCardComponent implements OnInit {
   @Output() onMove = new EventEmitter<TaskTransition>();
   @Output() onDelete = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }

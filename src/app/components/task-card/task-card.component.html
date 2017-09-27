@@ -1,6 +1,5 @@
 <article class="task-card">
   <p>{{task.name}}</p>
-  {{task | json}}
   <footer>
     <div class="change-priority">
       <button (click)="handleUpClick()">Up</button>
@@ -13,5 +12,6 @@
     <div class="delete">
       <button (click)="handleDeleteClick()">Delete</button>
     </div>
+    <a [routerLink]="['/tasks', task.id]">view details</a>
   </footer>
 </article>

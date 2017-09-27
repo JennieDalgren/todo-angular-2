@@ -1,4 +1,5 @@
 import { TaskStatus } from './enums/task-status.enum';
+import { TaskTransition } from './enums/task-transition.enum';
 
 export class Task {
   id: string;
@@ -7,5 +8,13 @@ export class Task {
   priority: number;
   constructor() {
     this.status = TaskStatus.Todo;
+  }
+  changeStatus(direction: TaskTransition) {
+    if (direction === TaskTransition.Back && this.status > 0) {
+      this.status--;
+    }
+    else if (direction === TaskTransition.Forward && this.status < 2) {
+      this.status++;
+    }
   }
 }
