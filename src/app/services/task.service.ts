@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
 
 import { Task } from '../models/task';
+import { TaskStatus } from '../models/enums/task-status.enum';
 
 @Injectable()
-export class TaskServiceService {
+export class TaskService {
 
   tasks: Task[] = [];
 
   constructor() {
-    this.addTask('my first task');
+    let task;
+    task = this.addTask('my first task');
+    task.status = TaskStatus.Todo;
+    task = this.addTask('my second task');
+    task.status = TaskStatus.Doing;
+    task = this.addTask('my third task');
+    task.status = TaskStatus.Done;
   }
 
   private getNextPriority() : number {
@@ -38,12 +45,13 @@ export class TaskServiceService {
     // @todo store in the server
   }
 
-  addTask(taskName: string) {
+  addTask(taskName: string): Task {
     const task = new Task();
     task.id = this.getRandomTaskId();
     task.name = taskName;
     task.priority = this.getNextPriority();
     this.tasks.push(task);
+    return task;
   }
 
 }

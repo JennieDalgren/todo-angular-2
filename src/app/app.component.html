@@ -1,1 +1,13 @@
-<app-playground-page></app-playground-page>
+<header class="site-header">
+  <h1><a [routerLink]="['tasks']">todo</a></h1>
+  <a [routerLink]="['profile']">username</a>
+  <hr/>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer class="site-footer">
+  <hr/>
+  <p>copyright bcnweb0817</p>
+  <p><a [routerLink]="['playground']">playground</a>
+</footer>

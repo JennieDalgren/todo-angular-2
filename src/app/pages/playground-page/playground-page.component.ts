@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../../models/task';
 import { TaskStatus } from '../../models/enums/task-status.enum';
 import { TaskTransition } from '../../models/enums/task-transition.enum';
+import { TaskMoveEvent } from '../../models/events/task-move-event';
 
 @Component({
   selector: 'app-playground-page',
@@ -41,7 +42,7 @@ export class PlaygroundPageComponent implements OnInit {
     console.log('task deleted!');
   }
 
-  handleTaskColumnMove(event) {
+  handleTaskColumnMove(event: TaskMoveEvent) {
     console.log('task transition in the list!', event);
   }
 
