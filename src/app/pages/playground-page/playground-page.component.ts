@@ -15,6 +15,7 @@ export class PlaygroundPageComponent implements OnInit {
   someTask2: Task;
   someTask3: Task;
   someTasks: Task[];
+
   constructor() {
     this.someTask1 = new Task();
     this.someTask1.name = 'example todo task';
