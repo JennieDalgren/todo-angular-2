@@ -1,0 +1,17 @@
+<article class="task-card">
+  <p>{{task.name}}</p>
+  {{task | json}}
+  <footer>
+    <div class="change-priority">
+      <button (click)="handleUpClick()">Up</button>
+      <button (click)="handleDownClick()">Down</button>
+    </div>
+    <div class="change-status">
+      <button (click)="handleBackClick()" [hidden]="task.status === 0">Back</button>
+      <button (click)="handleForwardClick()" [hidden]="task.status === 2">Forward</button>
+    </div>
+    <div class="delete">
+      <button (click)="handleDeleteClick()">Delete</button>
+    </div>
+  </footer>
+</article>

@@ -1,0 +1,11 @@
+<h1>my components</h1>
+
+<h2>task cards</h2>
+
+<app-task-card [task]="someTask1" (onMove)="handleTaskMove($event)" (onDelete)="handleTaskDelete()"></app-task-card>
+<app-task-card [task]="someTask2" (onMove)="handleTaskMove($event)" (onDelete)="handleTaskDelete()"></app-task-card>
+<app-task-card [task]="someTask3" (onMove)="handleTaskMove($event)" (onDelete)="handleTaskDelete()"></app-task-card>
+
+<h2>task columns</h2>
+
+<app-task-column [tasks]="someTasks" (onTaskMove)="handleTaskColumnMove($event)" (onTaskDelete)="handleTaskColumnDelete($event)"></app-task-column>
